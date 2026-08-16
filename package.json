@@ -1,0 +1,14 @@
+{
+  "name": "masters-studio-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Masters. studio marketing site — static site built with Eleventy",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}

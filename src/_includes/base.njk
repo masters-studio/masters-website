@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale={{ viewportScale | default("1") }}">
+<title>{{ title }}</title>
+{%- if description %}
+<meta name="description" content="{{ description }}">
+{%- endif %}
+{%- if keywords %}
+<meta name="keywords" content="{{ keywords }}">
+{%- endif %}
+{%- if canonicalPath %}
+<link rel="canonical" href="https://masters-studio.co.il{{ canonicalPath }}">
+{%- endif %}
+{%- if themeColor %}
+<meta name="theme-color" content="#191919">
+{%- endif %}
+{%- if robots %}
+<meta name="robots" content="{{ robots }}">
+{%- endif %}
+{%- if og %}
+
+<!-- Open Graph -->
+<meta property="og:type" content="{{ og.type }}">
+<meta property="og:title" content="{{ og.title }}">
+<meta property="og:description" content="{{ og.description }}">
+<meta property="og:locale" content="he_IL">
+<meta property="og:url" content="https://masters-studio.co.il{{ canonicalPath }}">
+{%- if og.image %}
+<meta property="og:image" content="https://masters-studio.co.il{{ og.image }}">
+{%- endif %}
+{%- if twitterCard %}
+<meta name="twitter:card" content="summary_large_image">
+{%- endif %}
+{%- endif %}
+
+<link rel="icon" type="image/png" href="/assets/logo-black.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{%- for p in preloadImages %}
+<link rel="preload" as="image" href="{{ p }}" fetchpriority="high">
+{%- endfor %}
+{%- if fontSwapTrick %}
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap"></noscript>
+{%- else %}
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+{%- endif %}
+
+<link rel="stylesheet" href="/css/style.css">
+{%- if legalCss %}
+<link rel="stylesheet" href="/css/legal.css">
+{%- endif %}
+{%- if showCookieBanner %}
+
+<link rel="preload" as="style" href="/css/cookie-consent.css">
+<link rel="stylesheet" href="/css/cookie-consent.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/css/cookie-consent.css"></noscript>
+{%- endif %}
+{%- if extraHead %}
+{{ extraHead | safe }}
+{%- endif %}
+{%- if jsonLd %}
+{{ jsonLd | safe }}
+{%- endif %}
+</head>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+{%- if beforeNav %}
+{{ beforeNav | safe }}
+{%- endif %}
+{%- if navPartial %}
+{% include navPartial %}
+{%- endif %}
+{{ content | safe }}
+{%- if footerPartial %}
+{% include footerPartial %}
+{%- endif %}
+{%- if afterFooter %}
+{{ afterFooter | safe }}
+{%- endif %}
+{%- if showCookieBanner %}
+{% include "cookie-banner.njk" %}
+<script src="/js/cookie-consent.js"></script>
+<script src="/js/ga4.js"></script>
+{%- endif %}
+</body>
+</html>

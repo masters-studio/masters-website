@@ -1,0 +1,17 @@
+<footer class="footer">
+  <div class="container">
+    {% if footerLogo %}<img class="flogo" src="/assets/logo-lightbg.png" alt="Masters studio" width="700" height="364">{% endif %}
+    <div class="footer-bottom" style="border:0;margin:0;padding:0">
+      <span>© 2026 Masters. studio</span>
+      <span><a href="/index.html"{% if not footerLogo %} style="color:var(--orange)"{% else %} class="footer-back"{% endif %}>חזרה לאתר ←</a></span>
+    </div>
+    <div class="footer-bottom" style="border:0;margin:6px 0 0;padding:0">
+      <span>
+        <a href="/privacy-policy.html">מדיניות פרטיות</a> ·
+        <a href="/terms.html">תנאי שימוש</a> ·
+        <a href="/accessibility.html">הצהרת נגישות</a> ·
+        <a href="/privacy-settings.html">הגדרות פרטיות</a>
+      </span>
+    </div>
+  </div>
+</footer>

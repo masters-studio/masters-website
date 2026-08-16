@@ -1,5 +1,6 @@
 [build]
-  publish = "."
+  command = "npm run build"
+  publish = "_site"
 
 # These short paths aren't linked anywhere on the site (every internal link,
 # canonical, and the sitemap use the .html URLs) — redirect rather than

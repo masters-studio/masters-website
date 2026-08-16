@@ -1,0 +1,93 @@
+---
+layout: base.njk
+title: "הצהרת נגישות | Masters. studio"
+description: "הצהרת הנגישות של Masters. studio ופרטי יצירת קשר לדיווח על בעיות נגישות באתר."
+robots: "noindex, follow"
+canonicalPath: "/accessibility.html"
+viewportScale: "1.0"
+fontSwapTrick: false
+legalCss: true
+bodyClass: "legal-page"
+showCookieBanner: false
+navPartial: "nav-sub.njk"
+navCtaText: "קבעו תור"
+navCtaHref: "/index.html#book"
+footerPartial: "footer-sub.njk"
+footerLogo: true
+afterFooter: |
+  <script>
+  (function(){
+    var root = document.documentElement;
+    var STEP = 2, MIN = 14, MAX = 24, KEY_SIZE = 'masters_a11y_fontsize', KEY_CONTRAST = 'masters_a11y_contrast';
+
+    function applyFontSize(px){
+      document.body.style.fontSize = px + 'px';
+    }
+    function currentSize(){
+      var v = parseInt(document.body.style.fontSize || '16', 10);
+      return isNaN(v) ? 16 : v;
+    }
+    document.getElementById('a11y-font-inc').addEventListener('click', function(){
+      applyFontSize(Math.min(MAX, currentSize() + STEP));
+    });
+    document.getElementById('a11y-font-dec').addEventListener('click', function(){
+      applyFontSize(Math.max(MIN, currentSize() - STEP));
+    });
+    document.getElementById('a11y-contrast').addEventListener('click', function(){
+      document.body.classList.toggle('a11y-high-contrast');
+    });
+    document.getElementById('a11y-reset').addEventListener('click', function(){
+      document.body.style.fontSize = '';
+      document.body.classList.remove('a11y-high-contrast');
+    });
+  })();
+  </script>
+
+  <style>
+    body.a11y-high-contrast{ background:#000 !important; color:#fff !important; }
+    body.a11y-high-contrast main.legal-content p,
+    body.a11y-high-contrast main.legal-content li{ color:#fff !important; }
+    body.a11y-high-contrast a{ color:#FC6030 !important; }
+  </style>
+---
+<section class="legal-hero">
+  <h1>הצהרת נגישות</h1>
+  <p>עדכון אחרון: 3 ביולי 2026</p>
+</section>
+
+<main class="legal-content">
+
+  <h2>כלים בסיסיים לנוחות הגלישה</h2>
+  <div class="a11y-controls" role="group" aria-label="כלי נגישות">
+    <button type="button" id="a11y-font-inc" aria-label="הגדלת טקסט">הגדל טקסט A+</button>
+    <button type="button" id="a11y-font-dec" aria-label="הקטנת טקסט">הקטן טקסט A-</button>
+    <button type="button" id="a11y-contrast" aria-label="ניגודיות גבוהה">ניגודיות גבוהה</button>
+    <button type="button" id="a11y-reset" aria-label="איפוס הגדרות">איפוס</button>
+  </div>
+
+  <h2>1. מחויבותנו לנגישות</h2>
+  <p>Masters. studio רואה חשיבות רבה במתן שירות שוויוני לכלל הגולשים, לרבות אנשים עם מוגבלות, ופועלת להנגשת האתר בהתאם לתקן הישראלי (ת"י 5568) ברמת AA, בהשראת הנחיות WCAG 2.1 הבינלאומיות.</p>
+
+  <h2>2. התאמות הנגישות שבוצעו באתר</h2>
+  <ul>
+    <li>מבנה סמנטי בעברית עם כיווניות RTL מלאה.</li>
+    <li>ניגודיות צבעים בין טקסט לרקע בהתאם לדרישות התקן.</li>
+    <li>אפשרות ניווט מלאה באמצעות מקלדת, כולל מסגרות פוקוס ברורות.</li>
+    <li>תיוג alt לתמונות ואייקונים משמעותיים.</li>
+    <li>כפתורי הגדלה/הקטנה של טקסט ומצב ניגודיות גבוהה בעמוד זה.</li>
+    <li>תאימות לתוכנות קורא מסך נפוצות.</li>
+  </ul>
+
+  <h2>3. מגבלות ידועות</h2>
+  <p>חרף מאמצינו, ייתכנו חלקים באתר שטרם הונגשו במלואם, לרבות בתוכן צד שלישי (כגון מערכת ההזמנות החיצונית Smartor). אנו פועלים לשיפור מתמיד.</p>
+
+  <h2>4. פנייה בנושא נגישות</h2>
+  <p>נתקלת בבעיית נגישות באתר? נשמח שתדווח/י לנו כדי שנוכל לטפל בכך בהקדם:</p>
+
+  <div class="legal-contact-box">
+    <h3>רכז/ת נגישות</h3>
+    <p>טלפון: <a href="tel:+972526613040">052-661-3040</a><br>
+    וואטסאפ: <a href="https://wa.me/972526613040" target="_blank" rel="noopener">wa.me/972526613040</a></p>
+  </div>
+
+</main>
