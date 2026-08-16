@@ -272,7 +272,7 @@ section{padding:74px 0;position:relative}
 .cta-band{
   background:
     linear-gradient(90deg,rgba(252,96,48,.94),rgba(126,48,24,.94)),
-    url("../assets/texture1.jpg") center/cover;
+    url("../assets/texture1.webp") center/cover;
   color:#141414;text-align:center;border-radius:0;
 }
 .cta-band h2{font-size:clamp(30px,7vw,50px);color:#161616;margin-bottom:14px}
