@@ -4,6 +4,33 @@
    Off-Black #191919 · Pearl #E5E5E5 · Orange #FC6030
    ============================================================ */
 
+/* Brand display font (self-hosted from the Masters Brandbook — Karantina,
+   SIL Open Font License, replaces the placeholder Anton). Google Sans is
+   NOT used here: it's Google's internal UI typeface, not a freely
+   licensed open font, and has little Hebrew coverage — Heebo remains the
+   Hebrew/body face for both those reasons. */
+@font-face{
+  font-family:"Karantina";
+  src:url("../fonts/Karantina-Light.woff2") format("woff2");
+  font-weight:300;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+  font-family:"Karantina";
+  src:url("../fonts/Karantina-Regular.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+  font-family:"Karantina";
+  src:url("../fonts/Karantina-Bold.woff2") format("woff2");
+  font-weight:700;
+  font-style:normal;
+  font-display:swap;
+}
+
 :root{
   --black:#191919;
   --black-2:#111111;
@@ -21,7 +48,7 @@
   --radius:14px;
   --radius-lg:22px;
 
-  --ff-display:"Anton",Impact,sans-serif;      /* latin display / big numerals */
+  --ff-display:"Karantina",Impact,sans-serif;  /* latin display / big numerals */
   --ff-head:"Heebo",system-ui,sans-serif;       /* hebrew headings (heavy) */
   --ff-body:"Heebo",system-ui,sans-serif;       /* body */
 
@@ -107,7 +134,7 @@ p{margin:0 0 1em}
 .mc-pref-title{font-family:var(--ff-head);font-weight:900;line-height:1.02;margin:0;letter-spacing:-.02em;display:block}
 
 .eyebrow{
-  font-family:var(--ff-display);font-size:13px;letter-spacing:.22em;
+  font-family:var(--ff-display);font-weight:700;font-size:13px;letter-spacing:.22em;
   color:var(--orange);text-transform:uppercase;margin-bottom:14px;
   display:inline-block;direction:ltr;
 }
@@ -193,7 +220,7 @@ section{padding:74px 0;position:relative}
 .split .media{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)}
 .split .media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
 .stat-row{display:flex;gap:30px;flex-wrap:wrap;margin-top:26px}
-.stat b{font-family:var(--ff-display);font-size:40px;color:var(--orange);display:block;line-height:1;direction:ltr}
+.stat b{font-family:var(--ff-display);font-weight:700;font-size:40px;color:var(--orange);display:block;line-height:1;direction:ltr}
 .stat span{font-size:13px;color:rgba(229,229,229,.6)}
 .on-pearl .stat span{color:rgba(25,25,25,.55)}
 
@@ -213,7 +240,7 @@ section{padding:74px 0;position:relative}
 .price h3{font-size:23px;margin-bottom:4px}
 .price .desc{font-size:14px;color:rgba(25,25,25,.6);min-height:40px}
 .price.featured .desc{color:rgba(229,229,229,.6)}
-.price .amount{font-family:var(--ff-display);font-size:52px;line-height:1;margin:14px 0 4px;direction:ltr}
+.price .amount{font-family:var(--ff-display);font-weight:700;font-size:52px;line-height:1;margin:14px 0 4px;direction:ltr}
 .price .amount small{font-size:20px;color:var(--orange)}
 .price .per{font-size:13px;color:rgba(25,25,25,.5);margin-bottom:18px}
 .price.featured .per{color:rgba(229,229,229,.5)}
@@ -247,7 +274,7 @@ section{padding:74px 0;position:relative}
 .article-card .thumb{aspect-ratio:16/10;overflow:hidden;background:#111}
 .article-card .thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
 .article-card .body{padding:22px}
-.article-card .kicker{font-family:var(--ff-display);font-size:11px;letter-spacing:.18em;color:var(--orange);direction:ltr}
+.article-card .kicker{font-family:var(--ff-display);font-weight:700;font-size:11px;letter-spacing:.18em;color:var(--orange);direction:ltr}
 .article-card h3{font-size:21px;margin:8px 0 8px}
 .article-card p{font-size:14.5px;color:rgba(229,229,229,.62);margin:0 0 14px}
 .article-card .more{font-weight:700;color:var(--orange);font-size:14px}
@@ -288,7 +315,7 @@ section{padding:74px 0;position:relative}
 .flogo-chip{background:var(--pearl);display:inline-flex;padding:10px 16px;border-radius:10px;margin-bottom:16px}
 .flogo-chip img{height:24px;width:auto;display:block;margin:0}
 .footer p{color:rgba(229,229,229,.55);font-size:14px}
-.footer h3{font-size:13px;letter-spacing:.12em;color:var(--orange);margin-bottom:14px;text-transform:uppercase;font-family:var(--ff-display)}
+.footer h3{font-size:13px;letter-spacing:.12em;color:var(--orange);margin-bottom:14px;text-transform:uppercase;font-family:var(--ff-display);font-weight:700}
 .footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
 .footer ul a{color:rgba(229,229,229,.7);font-size:14px;display:inline-block;padding:11px 0}
 .footer ul a:hover{color:var(--orange)}
@@ -322,7 +349,7 @@ body{padding-bottom:76px}
    ARTICLE (long-form) page
    ============================================================ */
 .article-hero{padding:110px 0 44px;background:var(--black);border-bottom:1px solid var(--line)}
-.article-hero .kicker{font-family:var(--ff-display);letter-spacing:.2em;color:var(--orange);font-size:13px;direction:ltr}
+.article-hero .kicker{font-family:var(--ff-display);font-weight:700;letter-spacing:.2em;color:var(--orange);font-size:13px;direction:ltr}
 .article-hero h1{font-size:clamp(34px,8vw,64px);margin:14px 0 16px;line-height:1}
 .article-hero .meta{color:rgba(229,229,229,.5);font-size:14px}
 .prose{max-width:740px;margin-inline:auto;padding:50px var(--gutter) 20px}
