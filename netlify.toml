@@ -1,31 +1,33 @@
 [build]
   publish = "."
 
-# Pretty URLs: /pricing instead of /pricing.html
+# These short paths aren't linked anywhere on the site (every internal link,
+# canonical, and the sitemap use the .html URLs) — redirect rather than
+# dual-serve so they can never become duplicate-content pages if discovered.
 [[redirects]]
   from = "/pricing"
   to = "/pricing.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/academy"
   to = "/academy.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/articles/fade"
   to = "/articles/mah-ze-fade.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/articles/choose-a-cut"
   to = "/articles/how-to-choose-cut.html"
-  status = 200
+  status = 301
 
 [[redirects]]
   from = "/articles/beard-care"
   to = "/articles/beard-care.html"
-  status = 200
+  status = 301
 
 # Long-term caching for static assets (filenames are stable, safe to cache hard)
 [[headers]]
