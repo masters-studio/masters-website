@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for p in sitemapPages %}
+  <url><loc>https://masters-studio.co.il{{ p.loc }}</loc><lastmod>{{ p.file | gitLastMod }}</lastmod><changefreq>{{ p.changefreq }}</changefreq><priority>{{ p.priority }}</priority></url>
+{%- endfor %}
+</urlset>
