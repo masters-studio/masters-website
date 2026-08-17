@@ -311,11 +311,11 @@ section{padding:74px 0;position:relative}
 .footer{background:var(--black-2);border-top:1px solid var(--line);padding:56px 0 30px}
 .footer-grid{display:grid;gap:34px;grid-template-columns:1fr}
 @media(min-width:760px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
-.footer img.flogo{height:24px;margin-bottom:16px}
+.footer img.flogo{height:24px;width:auto;margin-bottom:16px}
 .flogo-chip{background:var(--pearl);display:inline-flex;padding:10px 16px;border-radius:10px;margin-bottom:16px}
 .flogo-chip img{height:24px;width:auto;display:block;margin:0}
 .footer p{color:rgba(229,229,229,.55);font-size:14px}
-.footer h3{font-size:13px;letter-spacing:.12em;color:var(--orange);margin-bottom:14px;text-transform:uppercase;font-family:var(--ff-display);font-weight:700}
+.footer h3{font-size:13px;letter-spacing:.12em;color:var(--orange);margin-bottom:14px;text-transform:uppercase;font-family:var(--ff-head);font-weight:700}
 .footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
 .footer ul a{color:rgba(229,229,229,.7);font-size:14px;display:inline-block;padding:11px 0}
 .footer ul a:hover{color:var(--orange)}
