@@ -1,9 +1,8 @@
 /* Masters Studio — Legal Pages Stylesheet
    Brand: Off-Black #191919 / Pearl #E5E5E5 / Masters Orange #FC6030
-   Fonts: Heebo (body) / Karantina (display)
-   Drop this file at: assets/css/legal.css (adjust <link> paths per page if your structure differs) */
-
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Karantina:wght@400;700&display=swap');
+   Fonts: Heebo (body) / Karantina (display) — both loaded once by base.njk /
+   style.css (self-hosted Karantina, optimized Heebo swap). No @import here:
+   it duplicated both font loads and bypassed the self-hosted Karantina files. */
 
 :root{
   --black:#191919;
