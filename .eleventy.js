@@ -28,6 +28,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/google1f4511110697fd18.html");
   // Plain-text verification file, not an HTML template — passthrough only.
   eleventyConfig.ignores.add("src/google1f4511110697fd18.html");
+  // Cloudflare reads these from the deploy output root, same convention as
+  // Netlify — passthrough only, not templates.
+  eleventyConfig.addPassthroughCopy("src/_redirects");
+  eleventyConfig.addPassthroughCopy("src/_headers");
 
   eleventyConfig.addFilter("gitLastMod", gitLastMod);
 

@@ -1,0 +1,11 @@
+{
+  "name": "website",
+  "compatibility_date": "2026-08-20",
+  "assets": {
+    "directory": "./_site",
+    // Multi-page static site (not a client-routed SPA), and it already has
+    // its own src/404.html — serve that for any unmatched path instead of
+    // Cloudflare's generic 404, matching Netlify's default behavior.
+    "not_found_handling": "404-page"
+  }
+}

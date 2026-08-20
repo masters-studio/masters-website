@@ -1,0 +1,9 @@
+# Short paths aren't linked anywhere on the site (every internal link,
+# canonical, and the sitemap use the .html URLs) — redirect rather than
+# dual-serve so they can never become duplicate-content pages if discovered.
+# Cloudflare-native equivalent of the [[redirects]] rules in netlify.toml.
+/pricing                /pricing.html                    301
+/academy                /academy.html                    301
+/articles/fade          /articles/mah-ze-fade.html        301
+/articles/choose-a-cut  /articles/how-to-choose-cut.html  301
+/articles/beard-care    /articles/beard-care.html         301
