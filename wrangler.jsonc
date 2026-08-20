@@ -5,6 +5,12 @@
     // No build step on this branch — publish = "." on Netlify, same here:
     // deploy the repo root as-is.
     "directory": ".",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    // Default "auto-trailing-slash" auto-redirects /page.html -> /page,
+    // which fights our own _redirects rules (those rewrite short paths TO
+    // the .html ones) and creates an infinite redirect loop. "none" serves
+    // files exactly as requested, no platform-injected redirects, letting
+    // our own _redirects rules be the only ones.
+    "html_handling": "none"
   }
 }
