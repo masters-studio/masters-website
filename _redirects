@@ -1,0 +1,10 @@
+# Pretty URLs: /pricing instead of /pricing.html
+# Cloudflare-native equivalent of the [[redirects]] rules in netlify.toml.
+# Status 200 = rewrite (URL stays as typed), matching main's netlify.toml —
+# NOT the same as dev's _redirects, which uses 301 (dev's canonical URLs
+# are the .html ones, so short paths there redirect away instead).
+/pricing                /pricing.html                    200
+/academy                /academy.html                    200
+/articles/fade          /articles/mah-ze-fade.html        200
+/articles/choose-a-cut  /articles/how-to-choose-cut.html  200
+/articles/beard-care    /articles/beard-care.html         200

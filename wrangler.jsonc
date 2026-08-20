@@ -1,0 +1,10 @@
+{
+  "name": "website",
+  "compatibility_date": "2026-08-20",
+  "assets": {
+    // No build step on this branch — publish = "." on Netlify, same here:
+    // deploy the repo root as-is.
+    "directory": ".",
+    "not_found_handling": "404-page"
+  }
+}
