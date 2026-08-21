@@ -1,3 +1,9 @@
+# html_handling is set to "none" in wrangler.jsonc (to stop a redirect-loop
+# fight with the platform default), which also disables Cloudflare's
+# automatic "/" -> "/index.html" directory-index serving. Without this rule
+# the bare root path 404s even though /index.html itself serves fine.
+/                       /index.html                      200
+
 # Pretty URLs: /pricing instead of /pricing.html
 # Cloudflare-native equivalent of the [[redirects]] rules in netlify.toml.
 # Status 200 = rewrite (URL stays as typed), matching main's netlify.toml —
