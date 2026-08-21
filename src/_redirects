@@ -1,3 +1,11 @@
+# html_handling is set to "none" in wrangler.jsonc (to stop a redirect-loop
+# fight with the platform default), which also disables Cloudflare's
+# automatic "/" -> "/index.html" directory-index serving. Without this rule
+# the bare root path 404s even though /index.html itself serves fine. Uses
+# 200 (rewrite, not redirect) since "/" -- unlike the other pages below --
+# canonicalPath is genuinely "/" itself (see src/index.html front matter).
+/                       /index.html                      200
+
 # Short paths aren't linked anywhere on the site (every internal link,
 # canonical, and the sitemap use the .html URLs) — redirect rather than
 # dual-serve so they can never become duplicate-content pages if discovered.
