@@ -1,29 +1,31 @@
 ---
 layout: base.njk
-title: "אקדמיה לספרות גברים | Masters. Academy — הכשרת ספרים מקצועית"
-description: "Masters. Academy — קורס ספרות גברים מקצועי מהיסודות ועד רמת מאסטר: פייד, מספריים, עיצוב זקן, עבודה מול לקוח אמיתי, תעודה והשמה."
-keywords: "קורס ספרות, לימודי ספרות גברים, אקדמיה לספרים, קורס ברבר, ללמוד ספרות"
+title: "Masters Studio Academy — אקדמיה מקצועית לספָּרות בהובלת אלעד טדה"
+description: "הכשרת ספָּרים ברמה הגבוהה בישראל בהובלת המאסטר אלעד טדה — קורס בסיס, Advanced Fading ו-Master Class. סטודיו פרימיום ברחובות."
+keywords: "קורס ספרות, לימודי ספרות גברים, אקדמיה לספרים, קורס ברבר, ללמוד ספרות, אלעד טדה"
 canonicalPath: "/academy.html"
 themeColor: true
 og:
   type: "website"
-  title: "אקדמיה לספרות גברים | Masters. Academy"
-  description: "קורס ספרות מקצועי מהיסודות ועד רמת מאסטר."
-  image: "/assets/app2.jpg"
+  title: "Masters Studio Academy — אקדמיה מקצועית לספָּרות בהובלת אלעד טדה"
+  description: "הכשרת ספָּרים ברמה הגבוהה בישראל בהובלת המאסטר אלעד טדה — קורס בסיס, Advanced Fading ו-Master Class."
+  image: "/assets/studio.jpg"
 fontSwapTrick: true
 showCookieBanner: true
 navPartial: "nav-sub.njk"
-navCtaText: "הרשמה לקורס"
-navCtaHref: "#apply"
+navCtaText: "הרשמה לאקדמיה"
+navCtaHref: "#register"
 footerPartial: "footer-sub.njk"
 footerLogo: true
+bodyClass: "academy-page"
 jsonLd: |
   <script type="application/ld+json">
   {
     "@context":"https://schema.org","@type":"Course",
-    "name":"קורס ספרות מקצועי — Masters. Academy",
-    "description":"קורס ספרות גברים מהיסודות ועד רמת מאסטר: טכניקות פייד, עבודת מספריים, עיצוב זקן, ניהול לקוח ובניית קליינטים.",
-    "provider":{"@type":"Organization","name":"Masters. studio","sameAs":"https://masters-studio.co.il/"}
+    "name":"אקדמיה מקצועית לספָּרות — Masters Studio Academy",
+    "description":"הכשרת ספָּרים ברמה הגבוהה בישראל: קורס בסיס, Advanced Fading ו-Master Class, בהובלת המאסטר אלעד טדה.",
+    "provider":{"@type":"Organization","name":"Masters. studio","sameAs":"https://masters-studio.co.il/"},
+    "instructor":{"@type":"Person","name":"אלעד טדה"}
   }
   </script>
   <script type="application/ld+json">
@@ -33,59 +35,242 @@ jsonLd: |
   </script>
 ---
 <main>
-  <section class="hero" style="min-height:70vh;padding:110px 0 60px;background:var(--black)" aria-label="Masters Academy">
-    <div class="container">
-      <span class="eyebrow">Masters. academy</span>
-      <h1 style="font-size:clamp(42px,11vw,88px)">רוצים להיות<br>הכי טובים <span class="dot" style="color:var(--orange)">שיש</span></h1>
-      <p class="sub">נבחרת הספרים של Masters. אנחנו מכשירים ספרים מקצועיים מהיסודות ועד רמת מאסטר אמיתי — ומעבירים את הידע הלאה.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#apply">להרשמה לקורס</a>
-        <a class="btn btn-ghost" href="#syllabus">מה לומדים</a>
-      </div>
-    </div>
-  </section>
 
-  <section id="syllabus">
-    <div class="container split">
-      <div>
-        <span class="eyebrow">התוכנית</span>
-        <h2 style="font-size:clamp(30px,7vw,48px)">מה לומדים באקדמיה<span class="dot"></span></h2>
-        <p style="color:rgba(229,229,229,.72);font-size:17px">
-          קורס מלא שבסופו אתם יוצאים עם מקצוע אמיתי, תיק עבודות ותעודה. לא שיעורים תיאורטיים —
-          עבודה מעשית על לקוחות אמיתיים בסטודיו שלנו, בליווי מאסטרים בכירים.
-        </p>
-        <div class="stat-row">
-          <div class="stat"><b>12</b><span>שבועות קורס</span></div>
-          <div class="stat"><b>80%</b><span>שעות תרגול מעשי</span></div>
-          <div class="stat"><b>100%</b><span>ליווי בהשמה</span></div>
+  <!-- HERO -->
+  <section class="ac-hero" aria-label="Masters Studio Academy">
+    <div class="bg"></div>
+    <div class="veil"></div>
+    <div class="veil2"></div>
+    <div class="watermark" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="in">
+        <div class="kicker"><span class="eyebrow">אקדמיה מקצועית לספָּרות</span><span class="line"></span></div>
+        <h1>להפוך&nbsp;לאמן.<br>לא&nbsp;רק&nbsp;ספָּר<span class="dot"></span></h1>
+        <p class="sub">אקדמיית Masters Studio מכשירה את הדור הבא של ספָּרי העילית בישראל — שילוב של טכניקות קלאסיות, Fading מתקדם ועיצוב מודרני, בסטודיו פרימיום אמיתי.</p>
+        <div class="verified-line">
+          <img src="/assets/icons/logomark-color.png" alt="" width="18" height="18">
+          בהובלת המאסטר <strong style="font-family:var(--ff-head);color:#fff">אלעד טדה</strong>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#register">הירשמו עכשיו</a>
+          <a class="btn btn-ghost" href="#why">למה Masters</a>
         </div>
       </div>
-      <div class="media"><img src="/assets/app2.webp" srcset="/assets/app2-400w.webp 400w, /assets/app2-700w.webp 700w, /assets/app2.webp 840w" sizes="(max-width:899px) calc(100vw - 40px), 542px" alt="שיעור מעשי באקדמיה של Masters" loading="lazy" width="840" height="1456"></div>
     </div>
   </section>
 
-  <section class="on-pearl">
+  <!-- STATS STRIP -->
+  <div class="stats-strip" aria-hidden="true">
+    <div class="in">
+      <div class="cell"><b>2018</b><span>משנת הקמה</span></div>
+      <div class="cell"><b class="o">3</b><span>מסלולי הכשרה</span></div>
+      <div class="cell"><b>1:1</b><span>ליווי אישי</span></div>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-band" aria-hidden="true">
+    <div class="track">
+      <span class="hollow">MASTERS.</span><span class="o">ACADEMY</span><span class="hollow">MASTERS.</span><span class="o">STUDIO</span><span class="hollow">MASTERS.</span><span class="o">ACADEMY</span><span class="hollow">MASTERS.</span><span class="o">STUDIO</span>
+      <span class="hollow">MASTERS.</span><span class="o">ACADEMY</span><span class="hollow">MASTERS.</span><span class="o">STUDIO</span><span class="hollow">MASTERS.</span><span class="o">ACADEMY</span><span class="hollow">MASTERS.</span><span class="o">STUDIO</span>
+    </div>
+  </div>
+
+  <!-- COURSES -->
+  <section id="courses">
     <div class="container">
+      <div class="section-head" style="margin-inline:auto;text-align:center">
+        <span class="eyebrow">מסלולי הלימוד</span>
+        <h2>בחרו את המסע שלכם<span class="dot"></span></h2>
+        <p style="margin-inline:auto">מסלול לכל שלב — מהצעד הראשון בעולם הספָּרות ועד רמת המאסטר.</p>
+      </div>
       <div class="grid g-3">
-        <article class="card"><img class="ic" src="/assets/icons/ic1.png" alt="" width="224" height="224"><h3>יסודות ותספורת בסיס</h3><p>עבודה עם מכונה ומספריים, הבנת מבנה ראש וקווי יסוד.</p></article>
-        <article class="card"><img class="ic" src="/assets/icons/ic3.png" alt="" width="224" height="224"><h3>טכניקות פייד</h3><p>Low, mid, high ו-skin fade — מעבר חלק ומדויק בכל רמה.</p></article>
-        <article class="card"><img class="ic" src="/assets/icons/ic5.png" alt="" width="224" height="224"><h3>עיצוב זקן בתער</h3><p>קווים חדים, גימור בתער חם וטיפוח זקן מקצועי.</p></article>
-        <article class="card"><img class="ic" src="/assets/icons/ic7.png" alt="" width="224" height="224"><h3>עבודה מול לקוח</h3><p>תקשורת, ייעוץ סטייל והתאמת תספורת אישית.</p></article>
-        <article class="card"><img class="ic" src="/assets/icons/ic9.png" alt="" width="224" height="224"><h3>בניית קליינטים</h3><p>מיתוג אישי, רשתות חברתיות ובניית בסיס לקוחות קבוע.</p></article>
-        <article class="card"><img class="ic" src="/assets/icons/ic11.png" alt="" width="224" height="224"><h3>תעודה והשמה</h3><p>מבחן גמר, תעודת Masters Academy וליווי במציאת מקום עבודה.</p></article>
+        <article class="card">
+          <img class="ic" src="/assets/icons/ic1.png" alt="" width="46" height="46">
+          <h3>קורס בסיס</h3>
+          <p>כל היסודות לכניסה לעולם הספָּרות — הכרת הכלים, מבנה הפנים וטכניקות גזירה בסיסיות.</p>
+          <ul class="feat-list"><li>3 חודשי הכשרה</li><li>תעודה מקצועית</li><li>ערכת כלים בסיסית</li></ul>
+          <a class="btn btn-ghost" href="#register" style="width:100%">פרטים נוספים</a>
+        </article>
+        <article class="card featured">
+          <span class="feat-tag">הנבחר ביותר</span>
+          <img class="ic" src="/assets/icons/ic3.png" alt="" width="46" height="46">
+          <h3>Advanced Fading</h3>
+          <p>לספָּרים בעלי ניסיון שרוצים לשדרג את יכולות ה-Fading לרמת המאסטרים הגדולים בעולם.</p>
+          <ul class="feat-list"><li>8 מפגשים אינטנסיביים</li><li>עבודה על מודליסטים בלבד</li><li>ליווי אישי של אלעד</li></ul>
+          <a class="btn btn-primary" href="#register" style="width:100%">הרשמה למסלול</a>
+        </article>
+        <article class="card">
+          <img class="ic" src="/assets/icons/ic11.png" alt="" width="46" height="46">
+          <h3>Master Class</h3>
+          <p>הכשרת עילית לניהול מספרה, מיתוג אישי וטכניקות עיצוב מורכבות. להיות יותר מסתם ספָּר.</p>
+          <ul class="feat-list"><li>חודש התמחות בסטודיו</li><li>ליווי עסקי מלא</li><li>בניית מותג אישי</li></ul>
+          <a class="btn btn-ghost" href="#register" style="width:100%">פרטים נוספים</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="apply" class="cta-band">
+  <!-- WHY MASTERS -->
+  <section id="why">
     <div class="container">
-      <span class="eyebrow" style="color:#3a1608">המחזור הבא נפתח בקרוב</span>
-      <h2>קחו את הצעד הראשון<span style="color:#161616">.</span></h2>
-      <p>השאירו פרטים ונחזור אליכם עם כל המידע על הקורס, המחיר ולוח הזמנים.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
-        <a class="btn btn-dark" href="tel:+972526613040">התקשרו: 052-661-3040</a>
-        <a class="btn btn-dark" href="/index.html#book" style="background:#161616">השאירו פרטים</a>
+      <div class="section-head">
+        <span class="eyebrow">למה Masters</span>
+        <h2>הכשרה שמייצרת מקצוענים<span class="dot"></span></h2>
+        <p>לא עוד קורס. מערכת לימוד שלמה שמלווה אתכם מהמספריים הראשונים ועד פתיחת העסק העצמאי.</p>
+      </div>
+      <div class="grid g-4">
+        <article class="card"><img class="ic" src="/assets/icons/ic5.png" alt="" width="38" height="38"><h3 style="font-size:19px">טכניקה מהשטח</h3><p>למידה מעשית על מודליסטים אמיתיים, לא על בובות. כל מה שעובד היום במספרה.</p></article>
+        <article class="card"><img class="ic" src="/assets/icons/ic7.png" alt="" width="38" height="38"><h3 style="font-size:19px">קבוצות קטנות</h3><p>יחס אישי וליווי צמוד של המאסטר לכל תלמיד לאורך כל הדרך.</p></article>
+        <article class="card"><img class="ic" src="/assets/icons/ic9.png" alt="" width="38" height="38"><h3 style="font-size:19px">תעודה מקצועית</h3><p>סיום עם תעודה והתמחות שמכניסות אתכם ישר לתעשייה.</p></article>
+        <article class="card"><img class="ic" src="/assets/icons/ic11.png" alt="" width="38" height="38"><h3 style="font-size:19px">ליווי עסקי</h3><p>מיתוג אישי, ניהול מספרה והקמת לקוחות קבועים — לא רק לספר, אלא להתפרנס.</p></article>
       </div>
     </div>
   </section>
+
+  <!-- ABOUT ACADEMY -->
+  <section id="about" class="on-pearl">
+    <div class="container about-ac">
+      <div class="card-side">
+        <div class="lm mask-logomark"></div>
+        <div class="in">
+          <div class="yr">מאז 2018</div>
+          <h3>הסטנדרט החדש<br>בלמידה</h3>
+          <div class="st"><div><b>100%</b><span>מעשי על מודליסטים</span></div><div><b class="w">1:1</b><span>ליווי אישי</span></div></div>
+        </div>
+      </div>
+      <div class="txt">
+        <span class="eyebrow">אודות האקדמיה</span>
+        <h2 style="margin-bottom:18px">אקדמיה לספָּרות עם חזון<span class="dot"></span></h2>
+        <p style="max-width:520px">ב-Masters Studio אנחנו לא רק מלמדים לספר — אנחנו מעצבים את עתיד ענף הספָּרות בישראל. התוכנית משלבת ידע תיאורטי מעמיק עם התנסות מעשית אינטנסיבית, תחת פיקוחם של המאסטרים הגדולים בתחום, בסטודיו ברמת הגימור הגבוהה ביותר.</p>
+        <div class="about-callouts">
+          <div class="item"><h4>ליווי אישי</h4><p>כל תלמיד מקבל יחס פרטני והכוונה מקצועית.</p></div>
+          <div class="item"><h4>טכניקות מתקדמות</h4><p>הטרנדים החמים בעולם ה-Fades וה-Styling.</p></div>
+          <div class="item"><h4>ציוד פרימיום</h4><p>עבודה על כלים וכיסאות מהמובילים בעולם.</p></div>
+          <div class="item"><h4>קהילת בוגרים</h4><p>רשת מקצועית שממשיכה ללוות אתכם גם אחרי.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MASTER PROFILE -->
+  <section id="master" class="master-sec">
+    <div class="glow-l" aria-hidden="true"></div>
+    <div class="container">
+      <div class="master-profile">
+        <div class="portrait">
+          <span class="placeholder-flag" style="font-size:10.5px;padding:5px 10px">תמונה זמנית — תוחלף בתמונה אמיתית של אלעד</span>
+          <img src="/assets/app2-700w.webp" alt="אלעד טדה — מייסד ומאסטר ראשי">
+        </div>
+        <div class="txt">
+          <span class="eyebrow">המאסטר</span>
+          <div class="quote-mark">”</div>
+          <blockquote>מקצוע הספָּרות הוא אומנות — ואני כאן כדי להעביר אותה הלאה, <span class="dot" style="display:inline">אחד-על-אחד.</span></blockquote>
+          <p class="bio">אלעד טדה הוא ספָּר מקצועי ומדריך מהשורה הראשונה, שצבר ניסיון של שנים מאחורי הכיסא ובבמות הגדולות של הענף. את כל הידע, הדיוק והגישה האישית הוא מביא אל תלמידי האקדמיה — מהאחיזה הראשונה במכונה ועד החיתוך המושלם.</p>
+          <div class="signoff">
+            <div class="lm-small mask-logomark"></div>
+            <div class="div"></div>
+            <div><div class="name">אלעד טדה</div><div class="role">מייסד · מאסטר ראשי</div></div>
+          </div>
+          <div class="hero-actions" style="margin-top:30px">
+            <a class="btn btn-primary" href="#register">ללמוד מאלעד</a>
+            <a class="btn btn-ghost" href="#gallery">העבודות שלנו</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDIO / GALLERY -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:34px">
+        <span class="eyebrow">הסטודיו</span>
+        <h2>המקום שבו נולדים מקצוענים<span class="dot"></span></h2>
+      </div>
+      <div class="gallery-wrap">
+        <div class="big">
+          <img src="/assets/studio.jpg" srcset="/assets/studio-480w.jpg 480w, /assets/studio-800w.jpg 800w, /assets/studio.jpg 1200w" sizes="(max-width:899px) calc(100vw - 40px), 760px" alt="חלל המספרה הראשי" loading="lazy" width="1200" height="1600">
+          <span class="cap">חלל המספרה הראשי</span>
+        </div>
+        <div class="side">
+          <div class="tile dark"><span>כלים מהמובילים בעולם</span></div>
+          <div class="tile orange"><span>סטודיו פרימיום ברמת גימור עולמית</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section id="register" class="on-pearl">
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:44px;align-items:center">
+      <div style="flex:1 1 340px;min-width:280px">
+        <span class="eyebrow">הרשמה</span>
+        <h2 style="margin-bottom:18px">קדימה, מתחילים<span class="dot"></span></h2>
+        <p style="max-width:420px;margin-bottom:26px">השאירו פרטים ונציג מהאקדמיה יחזור אליכם עם כל המידע על המסלולים.</p>
+        <ul class="trust-list">
+          <li>ליווי אישי 1:1 לאורך כל המסלול</li>
+          <li>עבודה מעשית על מודליסטים אמיתיים</li>
+          <li>תעודה מקצועית בסיום</li>
+        </ul>
+      </div>
+      <div style="flex:1 1 360px;min-width:280px">
+        <form class="lead-form" id="academyForm">
+          <div class="field"><label for="p-name">שם מלא</label><input id="p-name" name="name" type="text" placeholder="איך קוראים לך?" required></div>
+          <div class="field"><label for="p-phone">טלפון</label><input id="p-phone" name="phone" type="tel" placeholder="050-000-0000" style="direction:ltr;text-align:right" required></div>
+          <div class="field">
+            <label for="p-track">מסלול מעניין</label>
+            <select id="p-track" name="track">
+              <option>קורס בסיס</option>
+              <option>Advanced Fading</option>
+              <option>Master Class</option>
+              <option>עדיין לא בטוח/ה</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" type="submit">שליחת פרטים</button>
+          <p class="fine" style="font-size:12.5px;color:rgba(229,229,229,.45);text-align:center;margin:0">השליחה פותחת הודעת וואטסאפ מוכנה אלינו עם הפרטים שמילאתם</p>
+        </form>
+        <script>
+          // No backend form handler exists for this site (Netlify Forms was
+          // removed along with the rest of Netlify — see the hosting-migration
+          // memory). Rather than a form that silently goes nowhere, build a
+          // pre-filled WhatsApp message from the real fields and hand off to
+          // wa.me — genuinely works today with zero new infrastructure.
+          document.getElementById('academyForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var name = document.getElementById('p-name').value.trim();
+            var phone = document.getElementById('p-phone').value.trim();
+            var track = document.getElementById('p-track').value;
+            var msg = 'היי, אני ' + name + ' (' + phone + ') ומעוניין/ת להירשם לאקדמיה — מסלול: ' + track;
+            window.open('https://wa.me/972526613040?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+          });
+        </script>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">צור קשר</span>
+        <h2>איפה אנחנו?<span class="dot"></span></h2>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:26px;align-items:stretch">
+        <div class="contact-cards" style="flex:1 1 300px;min-width:280px">
+          <div class="ccard"><span class="ic-wrap"><img src="/assets/icons/ic-pin.png" alt="" width="17" height="17"></span><div><div class="lbl">כתובת הסטודיו</div><div class="val">ביל"ו 41, קומה 1, רחובות</div></div></div>
+          <div class="ccard"><span class="ic-wrap"><img src="/assets/icons/ic-phone.png" alt="" width="17" height="17"></span><div><div class="lbl">טלפון</div><div class="val" style="direction:ltr;text-align:right;display:block">052-661-3040</div></div></div>
+          <a class="ccard" href="https://wa.me/972526613040" target="_blank" rel="noopener"><span class="ic-wrap"><img src="/assets/icons/ic-phone.png" alt="" width="17" height="17"></span><div><div class="lbl">וואטסאפ</div><div class="val" style="direction:ltr;text-align:right;display:block">052-661-3040</div></div></a>
+          <a class="ccard" href="https://www.instagram.com/masters__studio/" target="_blank" rel="noopener"><span class="ic-wrap"><img src="/assets/icons/ic-instagram.png" alt="" width="17" height="17"></span><div><div class="lbl">אינסטגרם</div><div class="val" style="direction:ltr;text-align:right;display:block">@masters__studio</div></div></a>
+        </div>
+        <div class="map-tile">
+          <div class="mp-ic mask-logomark"></div>
+          <div class="mp-name">Masters Studio</div>
+          <div class="mp-addr">ביל"ו 41, קומה 1, רחובות</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>

@@ -1,11 +1,48 @@
 <footer class="footer">
+  <div class="footer-watermark"></div>
   <div class="container">
-    {% if footerLogo %}<img class="flogo" src="/assets/logo-darkbg.png" alt="Masters studio" width="696" height="351">{% endif %}
-    <div class="footer-bottom" style="border:0;margin:0;padding:0">
-      <span>© 2026 Masters. studio</span>
-      <span><a href="/index.html"{% if not footerLogo %} style="color:var(--orange)"{% else %} class="footer-back"{% endif %}>חזרה לאתר ←</a></span>
+    <div class="footer-grid">
+      <div>
+        <img class="flogo" src="/assets/logo-darkbg.png" alt="Masters studio" width="696" height="351">
+        <p>סטודיו לספרות גברים ואקדמיה מקצועית. דיוק של אומן, אווירה של חברים.</p>
+        <div class="contact-blocks">
+          <div class="contact-block">
+            <span class="ic-wrap"><img src="/assets/icons/ic-pin.png" alt="" width="16" height="16"></span>
+            <span class="txt">ביל"ו 41, רחובות · א'–ה' 09:00–21:00 · ו'–ש' סגור</span>
+          </div>
+          <div class="contact-block">
+            <span class="ic-wrap"><img src="/assets/icons/ic-phone.png" alt="" width="16" height="16"></span>
+            <a href="tel:+972526613040" style="direction:ltr;display:inline-block">052-661-3040</a>
+          </div>
+          <div class="contact-block">
+            <span class="ic-wrap"><img src="/assets/icons/ic-instagram.png" alt="" width="16" height="16"></span>
+            <a href="https://www.instagram.com/masters__studio/" target="_blank" rel="noopener">@masters__studio</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>ניווט</h3>
+        <ul>
+          <li><a href="/index.html#about">הסטודיו</a></li>
+          <li><a href="/pricing.html">מחירון</a></li>
+          <li><a href="/index.html#team">הצוות</a></li>
+          <li><a href="/academy.html">אקדמיה</a></li>
+          <li><a href="/index.html#articles">מדריכים</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>עקבו</h3>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/masters__studio/" target="_blank" rel="noopener" aria-label="אינסטגרם"><img src="/assets/icons/ic-instagram.png" alt="" width="18" height="18"></a>
+          <a href="https://wa.me/972526613040" target="_blank" rel="noopener" aria-label="וואטסאפ"><img src="/assets/icons/ic-phone.png" alt="" width="18" height="18"></a>
+        </div>
+      </div>
     </div>
-    <div class="footer-bottom" style="border:0;margin:6px 0 0;padding:0">
+    <div class="footer-bottom">
+      <span>© 2026 Masters. studio · כל הזכויות שמורות</span>
+      <span>עוצב בהתאם לספר המותג של Masters.</span>
+    </div>
+    <div class="footer-bottom" style="margin-top:6px">
       <span>
         <a href="/privacy-policy.html">מדיניות פרטיות</a> ·
         <a href="/terms.html">תנאי שימוש</a> ·

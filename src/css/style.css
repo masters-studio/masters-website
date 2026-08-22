@@ -131,6 +131,10 @@ p{margin:0 0 1em}
 .btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
 .btn-dark{background:var(--black);color:var(--pearl)}
 .btn-dark:hover{transform:translateY(-2px)}
+/* .btn-ghost's pearl text/border assumes a dark ambient background —
+   invisible on an .on-pearl card (e.g. the academy course cards) */
+.on-pearl .btn-ghost{color:var(--black);border-color:rgba(25,25,25,.28)}
+.on-pearl .btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
 .mc-pref-title{font-family:var(--ff-head);font-weight:900;line-height:1.02;margin:0;letter-spacing:-.02em;display:block}
 
 .eyebrow{
@@ -143,6 +147,14 @@ p{margin:0 0 1em}
    SECTIONS
    ============================================================ */
 section{padding:74px 0;position:relative}
+/* brand background — the pre-composited MASTERS. wordmark pattern
+   (Backgrounds/No Logo/App 9x19.jpg), used behind these specific
+   homepage sections instead of a flat color */
+/* :not(.academy-page) guard: #about is also used as an id on academy.html
+   (a different section entirely) — without the guard this rule's
+   background-image wins there too via plain ID specificity, even after
+   overriding just the color further down for that page */
+body:not(.academy-page) #about,#pricing,#faq{background:#141414 url("../assets/bg-pattern.jpg") center/cover}
 .section-head{max-width:640px;margin-bottom:44px}
 .section-head h2{font-size:clamp(30px,7vw,52px);margin-bottom:14px}
 .section-head p{color:rgba(229,229,229,.7);font-size:17px}
@@ -208,7 +220,7 @@ section{padding:74px 0;position:relative}
 
 .card{
   background:#1f1f1f;border:1px solid var(--line);border-radius:var(--radius-lg);
-  padding:28px;transition:transform .2s,border-color .2s;
+  padding:28px;transition:transform .2s,border-color .2s;position:relative;
 }
 .card:hover{transform:translateY(-4px);border-color:rgba(252,96,48,.5)}
 .card .ic{width:46px;height:46px;margin-bottom:16px}
@@ -217,13 +229,70 @@ section{padding:74px 0;position:relative}
 .on-pearl .card{background:var(--white);border-color:var(--line-dark);color:var(--black)}
 .on-pearl .card p{color:rgba(25,25,25,.62)}
 
+/* card variant: "most requested" ribbon, used where a card has no price
+   (e.g. the homepage services grid) — see .price .tag for the priced
+   equivalent used on pricing.html */
+.card.featured{border-color:var(--orange)}
+.card .feat-tag{
+  position:absolute;top:0;left:0;background:var(--orange);color:#141414;
+  font-family:var(--ff-head);font-weight:800;font-size:11px;padding:6px 14px;
+  border-bottom-right-radius:12px;border-top-left-radius:var(--radius-lg);
+}
+.card .feat-list{list-style:none;padding:0;margin:14px 0 22px;display:flex;flex-direction:column;gap:9px}
+.card .feat-list li{font-size:14px;padding-inline-start:22px;position:relative;color:rgba(229,229,229,.72)}
+.card .feat-list li::before{content:"";position:absolute;inset-inline-start:0;top:6px;width:9px;height:9px;border-radius:50%;background:var(--orange)}
+.on-pearl .card .feat-list li{color:rgba(25,25,25,.66)}
+
+/* services spotlight banner (homepage #services) — highlights the
+   top-selling combo without a price, since prices vary per barber */
+.spotlight{
+  position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;
+  background:linear-gradient(135deg,#1f1f1f,#161616);
+  border:1px solid var(--orange);border-radius:var(--radius-lg);
+  padding:32px 30px;margin-bottom:26px;
+}
+.spotlight .ic-big{width:56px;height:56px;flex:none;filter:invert(1);margin-bottom:6px}
+.spotlight .tag{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#141414;
+  font-family:var(--ff-head);font-weight:800;font-size:11.5px;padding:6px 14px;border-radius:100px;
+  letter-spacing:.03em;box-shadow:0 6px 14px -4px rgba(252,96,48,.6);white-space:nowrap;
+}
+.spotlight h3{font-size:23px;margin-bottom:6px;color:#fff}
+.spotlight p{color:rgba(229,229,229,.66);font-size:15px;margin:0;max-width:480px}
+/* .spotlight always has its own dark card background regardless of an
+   .on-pearl ancestor (e.g. #services) — .on-pearl's blanket
+   h1-h4{color:black} rule would otherwise make the heading invisible */
+.on-pearl .spotlight h3{color:#fff}
+
 /* ============================================================
    INFO / feature split
    ============================================================ */
 .split{display:grid;gap:34px;align-items:center}
 @media(min-width:900px){.split{grid-template-columns:1fr 1fr;gap:56px}}
-.split .media{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)}
+.split .media{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);position:relative}
 .split .media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+
+/* #about's studio photo stays in full color (not the grayscale every other
+   .split image uses) — a soft bottom-edge veil keeps the caption pill
+   readable instead, same trick the gallery photo on /academy.html uses */
+#about .media img{filter:contrast(1.05)}
+#about .media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 55%,rgba(9,9,9,.55));
+}
+.caption-pill{
+  position:absolute;bottom:18px;inset-inline-end:18px;z-index:2;
+  background:rgba(25,25,25,.72);backdrop-filter:blur(6px);
+  border:1px solid rgba(229,229,229,.18);color:var(--pearl);
+  font-size:13px;font-weight:600;padding:9px 16px;border-radius:100px;
+  display:flex;align-items:center;gap:8px;
+}
+.caption-pill .dot-live{width:7px;height:7px;border-radius:50%;background:var(--orange);flex:none}
+.placeholder-flag{
+  position:absolute;top:18px;inset-inline-start:18px;z-index:2;
+  background:rgba(20,20,20,.82);color:var(--pearl);font-size:11.5px;font-weight:700;
+  padding:7px 13px;border-radius:100px;border:1px dashed rgba(229,229,229,.5);
+}
 .stat-row{display:flex;gap:30px;flex-wrap:wrap;margin-top:26px}
 .stat b{font-family:var(--ff-display);font-weight:700;font-size:40px;color:var(--orange);display:block;line-height:1;direction:ltr}
 .stat span{font-size:13px;color:rgba(229,229,229,.6)}
@@ -319,8 +388,13 @@ section{padding:74px 0;position:relative}
 /* ============================================================
    FOOTER
    ============================================================ */
-.footer{background:var(--black-2);border-top:1px solid var(--line);padding:56px 0 30px}
-.footer-grid{display:grid;gap:34px;grid-template-columns:1fr}
+.footer{background:var(--black-2);border-top:1px solid var(--line);padding:56px 0 30px;position:relative;overflow:hidden}
+.footer-watermark{
+  position:absolute;inset:0;pointer-events:none;
+  background:url("../assets/pattern-watermark.png") center/700px repeat;
+  opacity:.08;mix-blend-mode:screen;
+}
+.footer-grid{position:relative;display:grid;gap:34px;grid-template-columns:1fr}
 @media(min-width:760px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
 .footer img.flogo{height:24px;width:auto;margin-bottom:16px}
 .footer p{color:rgba(229,229,229,.55);font-size:14px}
@@ -328,8 +402,32 @@ section{padding:74px 0;position:relative}
 .footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
 .footer ul a{color:rgba(229,229,229,.7);font-size:14px;display:inline-block;padding:11px 0}
 .footer ul a:hover{color:var(--orange)}
-.footer-bottom{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
+.footer-bottom{position:relative;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
   display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;color:rgba(229,229,229,.4);font-size:12.5px}
+
+/* first footer column: pin/phone/instagram in place of the old plain-text
+   address paragraph */
+.contact-blocks{display:flex;flex-direction:column;gap:14px;margin-top:18px}
+.contact-block{display:flex;align-items:flex-start;gap:12px}
+.contact-block .ic-wrap{
+  flex:none;width:34px;height:34px;border-radius:50%;
+  background:rgba(252,96,48,.12);border:1px solid rgba(252,96,48,.3);
+  display:flex;align-items:center;justify-content:center;
+}
+.contact-block .ic-wrap img{width:16px;height:16px;display:block}
+.contact-block a,.contact-block span.txt{color:rgba(229,229,229,.75);font-size:14px;line-height:1.5}
+.contact-block a:hover{color:var(--orange)}
+
+/* "עקבו" column: icon-only social buttons instead of text links */
+.social-icons{display:flex;flex-direction:column;gap:12px}
+.social-icons a{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:40px;height:40px;border-radius:50%;padding:0;
+  background:rgba(252,96,48,.1);border:1px solid rgba(252,96,48,.3);
+  transition:background .2s,border-color .2s,transform .15s;
+}
+.social-icons a:hover{background:var(--orange);border-color:var(--orange);transform:translateY(-2px)}
+.social-icons a img{width:18px;height:18px;display:block}
 .footer-back{
   display:inline-flex;align-items:center;gap:4px;
   background:var(--orange);color:#141414;font-weight:800;font-family:var(--ff-head);
@@ -373,3 +471,175 @@ body{padding-bottom:76px}
 .prose .callout p{margin:0;font-size:16px}
 .breadcrumb{font-size:13px;color:rgba(229,229,229,.5);margin-bottom:6px}
 .breadcrumb a:hover{color:var(--orange)}
+
+/* ============================================================
+   ACADEMY PAGE (academy.html) — mirrors the structure/copy of the
+   masters-studio-academy.web.app sister site, rebuilt with our own
+   brand assets/components instead of its icon font and stock textures.
+   ============================================================ */
+.g-4{grid-template-columns:1fr}
+@media(min-width:640px){.g-4{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.g-4{grid-template-columns:repeat(4,1fr)}}
+
+/* a plain silhouette mask of the logomark, tinted via background-color —
+   used as a low-opacity decorative accent, not a real logo lockup */
+.mask-logomark{
+  -webkit-mask:url("../assets/icons/logomark-mask.png") center/contain no-repeat;
+  mask:url("../assets/icons/logomark-mask.png") center/contain no-repeat;
+}
+
+/* academy.html: the brand watermark background is the PAGE's own
+   persistent backdrop (see body.academy-page below) — sections that
+   don't need a distinct color just stay translucent so it shows through
+   consistently, matching masters-studio-academy.web.app's own technique
+   instead of each section carrying its own separate background. */
+body.academy-page{background:#141414 url("../assets/bg-pattern.jpg") center top/cover fixed}
+@media(max-width:820px){
+  /* fixed backgrounds are janky/slow on mobile browsers — the reference
+     site itself disables fixed + switches to a tiled repeat there */
+  body.academy-page{background-attachment:scroll;background-size:480px auto;background-repeat:repeat}
+}
+#courses,#why{background:rgba(13,13,13,.5)}
+/* black-fill icon PNGs are invisible on these sections' dark cards —
+   same fix already used for .spotlight .ic-big */
+#courses .card .ic,#why .card .ic{filter:invert(1)}
+/* Master Profile stays opaque — the page-wide pattern background above
+   would otherwise bleed through (it had no background of its own).
+   About Academy needed no equivalent fix here: its own #about rule was
+   the real bug, fixed at the :not(.academy-page) guard above. */
+body.academy-page .master-sec{background-color:var(--black)}
+
+/* hero */
+.ac-hero{position:relative;overflow:hidden;min-height:78vh;display:flex;align-items:center;padding:clamp(110px,16vh,160px) 0 clamp(50px,8vh,80px)}
+.ac-hero .bg{position:absolute;inset:0;background:url("../assets/studio.jpg") center/cover no-repeat;filter:contrast(1.05) brightness(.72)}
+.ac-hero .veil{position:absolute;inset:0;background:linear-gradient(to left,rgba(10,10,10,.96) 0%,rgba(10,10,10,.82) 42%,rgba(10,10,10,.4) 100%)}
+.ac-hero .veil2{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.95),transparent 34%)}
+.ac-hero .watermark{position:absolute;inset:0;background:url("../assets/pattern-watermark.png") center/560px repeat;opacity:.045;mix-blend-mode:screen}
+.ac-hero .glow{position:absolute;top:0;bottom:0;inset-inline-end:0;width:4px;background:linear-gradient(180deg,transparent,var(--orange) 42%,var(--orange) 58%,transparent);opacity:.85}
+/* width:100% neutralizes .container's own margin-inline:auto once it's a
+   flex item here — without it, the auto margins center the (content-sized)
+   box in the middle of the section instead of letting .in hug the RTL
+   start edge like every other section's container */
+.ac-hero .container{width:100%}
+.ac-hero .in{position:relative;z-index:3;max-width:660px}
+.ac-hero .kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:24px}
+.ac-hero .kicker .eyebrow{margin:0}
+.ac-hero .kicker .line{width:38px;height:1px;background:linear-gradient(90deg,var(--orange),transparent)}
+.ac-hero h1{font-size:clamp(40px,7vw,80px);line-height:.98;margin-bottom:22px}
+.ac-hero .sub{color:rgba(229,229,229,.72);max-width:520px;font-size:17px;margin-bottom:26px}
+.ac-hero .verified-line{display:flex;align-items:center;gap:9px;margin-bottom:30px;font-size:15px;color:rgba(229,229,229,.72)}
+.ac-hero .verified-line img{width:18px;height:18px;object-fit:contain}
+
+/* stats strip + marquee */
+.stats-strip{background:rgba(18,18,18,.85);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats-strip .in{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center}
+.stats-strip .cell{flex:1 1 200px;text-align:center;padding:34px 20px;border-inline-start:1px solid var(--line)}
+.stats-strip .cell:first-child{border-inline-start:0}
+.stats-strip .cell b{font-family:var(--ff-head);font-weight:900;font-size:clamp(36px,5vw,52px);color:#fff;display:block;line-height:1;direction:ltr}
+.stats-strip .cell b.o{color:var(--orange)}
+.stats-strip .cell span{font-size:13px;color:rgba(229,229,229,.55);display:block;margin-top:8px}
+
+.marquee-band{position:relative;background:#0e0e0e;border-top:1px solid rgba(252,96,48,.3);border-bottom:1px solid rgba(252,96,48,.3);overflow:hidden;padding:16px 0}
+.marquee-band .track{display:flex;width:max-content;gap:30px;font-family:var(--ff-head);font-weight:900;font-size:26px;white-space:nowrap;animation:marq 30s linear infinite}
+.marquee-band .track span.o{color:var(--orange)}
+.marquee-band .track span.hollow{color:transparent;-webkit-text-stroke:1px rgba(229,229,229,.45)}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-band .track{animation:none}}
+
+/* about academy */
+.about-ac{display:flex;flex-wrap:wrap;gap:clamp(30px,5vw,60px);align-items:center}
+.about-ac .card-side{
+  flex:1 1 380px;min-width:280px;position:relative;border-radius:var(--radius-lg);overflow:hidden;
+  border:1px solid var(--line);background:#161616 url("../assets/texture1.webp") center/cover;
+  min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;padding:30px;box-shadow:var(--shadow);
+}
+.about-ac .card-side::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,13,.3),rgba(13,13,13,.86))}
+.about-ac .card-side .lm{position:absolute;top:-26px;inset-inline-start:-16px;width:180px;height:258px;opacity:.14;background:var(--orange)}
+.about-ac .card-side .in{position:relative}
+.about-ac .card-side .yr{font-family:var(--ff-head);font-weight:700;font-size:12px;letter-spacing:.16em;color:var(--orange);margin-bottom:8px}
+/* explicit white: .card-side has its own dark texture background even
+   though #about is an .on-pearl section — same fix as .spotlight h3 above */
+.about-ac .card-side h3{font-size:clamp(22px,3vw,32px);margin-bottom:20px;color:#fff}
+.about-ac .card-side .st{display:flex;gap:26px;flex-wrap:wrap}
+.about-ac .card-side .st b{font-family:var(--ff-head);font-weight:900;font-size:26px;color:var(--orange);display:block}
+.about-ac .card-side .st .w{color:#fff}
+.about-ac .card-side .st span{font-size:12px;color:rgba(229,229,229,.6)}
+.about-ac .txt{flex:1 1 400px;min-width:280px}
+.about-callouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px 26px;margin-top:28px}
+.about-callouts .item h4{display:flex;align-items:center;gap:9px;font-size:16.5px;margin-bottom:5px}
+.about-callouts .item h4::before{content:"";width:7px;height:7px;background:var(--orange);transform:rotate(45deg);flex:none}
+/* dark-toned, not pearl: #about is an .on-pearl section, unlike most
+   places this shade of text sits */
+.about-callouts .item p{font-size:14px;color:rgba(25,25,25,.6);margin:0;padding-inline-start:16px}
+
+/* master profile */
+.master-sec{position:relative;overflow:hidden}
+.master-sec .glow-l{position:absolute;top:0;bottom:0;inset-inline-start:0;width:4px;background:linear-gradient(180deg,transparent,var(--orange) 38%,var(--orange) 62%,transparent);opacity:.85;z-index:2}
+.master-profile{display:flex;flex-wrap:wrap-reverse;align-items:center;gap:clamp(30px,4.5vw,60px)}
+.master-profile .portrait{
+  flex:1 1 320px;min-width:260px;align-self:stretch;position:relative;
+  min-height:clamp(360px,55vh,560px);border-radius:var(--radius-lg);overflow:hidden;
+  border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.master-profile .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.master-profile .portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(to left,transparent 55%,rgba(13,13,13,.5))}
+.master-profile .txt{flex:1 1 400px;min-width:280px}
+.master-profile blockquote{font-family:var(--ff-head);font-weight:800;font-size:clamp(24px,3.4vw,40px);line-height:1.2;margin:10px 0 26px}
+.master-profile .quote-mark{font-family:var(--ff-display);font-size:52px;color:var(--orange);opacity:.5;line-height:1}
+.master-profile .bio{color:rgba(229,229,229,.72);font-size:16px;max-width:540px;margin-bottom:26px}
+.master-profile .signoff{display:flex;align-items:center;gap:16px}
+.master-profile .signoff .lm-small{width:32px;height:46px;background:var(--orange)}
+.master-profile .signoff .div{width:1px;height:40px;background:rgba(255,255,255,.18)}
+.master-profile .signoff .name{font-family:var(--ff-head);font-weight:900;font-size:19px;color:#fff}
+.master-profile .signoff .role{font-size:12.5px;color:rgba(229,229,229,.6)}
+
+/* studio gallery */
+.gallery-wrap{display:flex;flex-wrap:wrap;gap:18px}
+.gallery-wrap .big{flex:2 1 420px;min-width:300px;position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line)}
+.gallery-wrap .big img{width:100%;height:clamp(300px,50vh,500px);object-fit:cover;display:block}
+.gallery-wrap .big::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(9,9,9,.72))}
+.gallery-wrap .big .cap{position:absolute;inset-inline-end:22px;bottom:20px;font-family:var(--ff-head);font-weight:800;font-size:19px;color:#fff;z-index:2}
+.gallery-wrap .side{flex:1 1 220px;min-width:220px;display:flex;flex-direction:column;gap:18px}
+.gallery-wrap .tile{flex:1;min-height:150px;border-radius:var(--radius-lg);position:relative;padding:20px;display:flex;align-items:flex-end;overflow:hidden}
+.gallery-wrap .tile.dark{background:#161616 url("../assets/texture2.webp") center/cover;border:1px solid var(--line)}
+.gallery-wrap .tile.dark::before{content:"";position:absolute;inset:0;background:rgba(13,13,13,.55)}
+.gallery-wrap .tile.orange{background:var(--orange)}
+.gallery-wrap .tile span{position:relative;font-family:var(--ff-head);font-weight:800;font-size:16px;color:#fff}
+.gallery-wrap .tile.orange span{color:#141414;font-weight:900}
+
+/* registration form */
+.lead-form{
+  background:#1f1f1f;border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:34px;max-width:460px;display:flex;flex-direction:column;gap:16px;box-shadow:var(--shadow);
+}
+.field{display:flex;flex-direction:column;gap:7px}
+.field label{font-size:13px;font-weight:600;color:rgba(229,229,229,.7)}
+.field input,.field select{
+  font-family:var(--ff-body);font-size:15px;color:var(--pearl);
+  background:#161616;border:1px solid rgba(229,229,229,.2);border-radius:10px;padding:13px 15px;
+}
+.field input::placeholder{color:rgba(229,229,229,.35)}
+.field input:focus,.field select:focus{border-color:var(--orange)}
+.lead-form .btn{margin-top:6px}
+.trust-list{list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:10px;max-width:420px}
+.trust-list li{font-size:14.5px;padding-inline-start:24px;position:relative;color:rgba(229,229,229,.78)}
+.trust-list li::before{content:"";position:absolute;inset-inline-start:0;top:7px;width:11px;height:11px;border-radius:50%;background:var(--orange)}
+/* #register (where this currently lives) is .on-pearl */
+.on-pearl .trust-list li{color:rgba(25,25,25,.7)}
+
+/* contact */
+.contact-cards{display:flex;flex-direction:column;gap:16px}
+.ccard{display:flex;align-items:flex-start;gap:14px;background:#1f1f1f;border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.ccard .ic-wrap{flex:none;width:36px;height:36px;border-radius:50%;background:rgba(252,96,48,.12);border:1px solid rgba(252,96,48,.3);display:flex;align-items:center;justify-content:center}
+.ccard .ic-wrap img{width:17px;height:17px}
+.ccard .lbl{font-family:var(--ff-head);font-weight:800;font-size:15px;margin-bottom:3px}
+.ccard .val{font-size:14.5px;color:rgba(229,229,229,.68)}
+.map-tile{
+  flex:1.4 1 320px;min-width:280px;position:relative;border-radius:var(--radius-lg);overflow:hidden;
+  border:1px solid var(--line);min-height:260px;background:#161616 url("../assets/texture1.webp") center/cover;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;
+}
+.map-tile::before{content:"";position:absolute;inset:0;background:rgba(13,13,13,.72)}
+.map-tile .mp-ic{position:relative;width:40px;height:40px;background:var(--orange)}
+.map-tile .mp-name{position:relative;font-family:var(--ff-head);font-weight:900;font-size:19px;color:#fff}
+.map-tile .mp-addr{position:relative;font-size:14px;color:rgba(229,229,229,.68)}
